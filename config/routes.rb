@@ -53,4 +53,7 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+
+  # default route syntax at bottom instead of get... will match if all other routes fail
+  match ':controller(/:action(/:id(.:format)))', :via => :get
 end
