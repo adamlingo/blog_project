@@ -24,4 +24,9 @@ class PagesControllerTest < ActionController::TestCase
     assert_select "title", "About | #{@base_title}"
   end
 
+  def test_contact
+    get :contact
+    assert_response :success
+    assert_select "title", "Contact | #{@base_title}"
+  end
 end
