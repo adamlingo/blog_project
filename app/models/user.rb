@@ -3,5 +3,7 @@ class User < ActiveRecord::Base
   validates :name, presence: true
   # valid e-mail REGEX, or regular expression defined as a CONSTANT
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
-  validates :email, presence: true, format: { with: VALID_EMAIL_REGEX}
+  # uniqueness is inferred as true, but you can set case sensitivity
+  validates :email, presence: true, format: { with: VALID_EMAIL_REGEX }, 
+              uniqueness: {case_sensitive: false}
 end
