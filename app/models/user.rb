@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  # callback before record is saved, indicating lowercase conversion
+  before_save { self.email = email.downcase }
   # validates method, same as validates(:name, presence: true)
   validates :name, presence: true
   # valid e-mail REGEX, or regular expression defined as a CONSTANT
