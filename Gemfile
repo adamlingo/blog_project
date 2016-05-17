@@ -6,6 +6,8 @@ ruby '2.3.0'
 gem 'rails', '4.2.5'
 # Use postgres as the database for Active Record
 gem 'pg'
+# Hash passord for ramped-up security
+gem 'bcrypt'
 
 # JAVASCRIPT
 # Use Uglifier as compressor for JavaScript assets
