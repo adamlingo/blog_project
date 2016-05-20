@@ -6,8 +6,14 @@
 /* variables for color */
 $gray-medium-light: #eaeaea;
 
-/* universal */
+/* mixins, variables, etc. */
+@mixin box_sizing {
+  -moz-box-sizing:    border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing:         border-box;
+}
 
+/* universal */
 body {
   padding-top: 60px;
 }
@@ -28,7 +34,6 @@ textarea {
 }
 
 /* typography */
-
 h1, h2, h3, h4, h5, h6 {
   line-height: 1;
 }
@@ -94,5 +99,14 @@ footer {
       float: left;
       margin-left: 15px;
     }
+  }
+  
+  /* miscellaneous */
+  .debug_dump {
+    clear: both;
+    float: left;
+    width: 100%;
+    margin-top: 45px;
+    @include box_sizing;
   }
 }
