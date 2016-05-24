@@ -12,6 +12,9 @@
     <p class="alert"><%= alert %></p>
     <%= render 'layouts/header' %>
     <div class="container">
+      <% flash.each do |message_type, message| %>
+        <%= content_tag(:div, message, class: "alert alert-#{message_type}") %>
+      <% end %>
       <!-- basic yield to load contents of each page in layout -->
       <%= yield %>
       <%= render 'layouts/footer' %>
