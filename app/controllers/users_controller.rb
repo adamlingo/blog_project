@@ -7,5 +7,24 @@ class UsersController < ApplicationController
   end
 
   def new
+    @user = User.new
+  end
+
+  def create
+    # former v. of Rails uses params, but now use strong params instead
+    # @user = User.new(params[:user])
+    @user = User.new(user_params)
+    # handle save or re-route to new form
+    if @user.save
+
+    else
+      render 'new'
+    end
+
+    private
+
+      def user_params
+        params.require(:user).permit(:name, :email, :password, :password_confirmation)
+      end
   end
 end
