@@ -16,15 +16,17 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     # handle save or re-route to new form
     if @user.save
-
+      flash[:success] = "Welcome to the Blog Project"
+      # redirect to show action
+      redirect_to @user
     else
       render 'new'
     end
-
-    private
-
-      def user_params
-        params.require(:user).permit(:name, :email, :password, :password_confirmation)
-      end
   end
+
+  private
+
+    def user_params
+      params.require(:user).permit(:name, :email, :password, :password_confirmation)
+    end
 end
