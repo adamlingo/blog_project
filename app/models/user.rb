@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  attr_accessor :remember_token
   # callback before record is saved, indicating lowercase conversion
   before_save { email.downcase! }
   # validates method, same as validates(:name, presence: true)
@@ -16,5 +17,29 @@ class User < ActiveRecord::Base
     cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
                                                   BCrypt::Engine.cost
     BCrypt::Password.create(string, cost: cost)
+  end
+
+  # Return random token: Remembering users involves creating a 
+  # remember token and saving the digest of the token to the database.
+  # "SecureRandom" module is in Ruby's standard library
+  def User.new_token
+    SecureRandom.urlsafe_base64
+  end
+
+  # Remembers users in db for use in sessions that are persistent
+  def remember
+    self.remember_token = User.new_token
+    update_attribute(:remember_digest, User.digest(remember_token))
+  end
+
+  # Returns true if the given token matches the digest.
+  def authenticated?(remember_token)
+    return false if remember_digest.nil?
+    BCrypt::Password.new(remember_digest).is_password?(remember_token)
+  end
+
+  # Forget (opposite of remember) user by updating remember digest w/nil
+  def forget
+    update_attribute(:remember_digest, nil)
   end
 end
