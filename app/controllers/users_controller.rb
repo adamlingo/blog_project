@@ -16,6 +16,8 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     # handle save or re-route to new form
     if @user.save
+      # login user immediately after signup
+      log_in @user
       flash[:success] = "Welcome to the Blog Project"
       # redirect to show action
       redirect_to @user
