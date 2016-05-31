@@ -2,8 +2,6 @@ class UsersController < ApplicationController
   
   def show
     @user = User.find(params[:id])
-    # call 'byebug' in rails server that acts as rails console
-    # debugger
   end
 
   def new
@@ -24,6 +22,10 @@ class UsersController < ApplicationController
     else
       render 'new'
     end
+  end
+
+  def edit
+    @user = User.find(params[:id])
   end
 
   private
