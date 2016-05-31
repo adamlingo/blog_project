@@ -3,6 +3,7 @@
 
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
+    <!-- form_for(@user) determines b/t POST or PATCH based on Boolean new_record? of Active Record-->
     <%= form_for(@user) do |f| %>
       <%= render 'shared/error_messages' %>
 
