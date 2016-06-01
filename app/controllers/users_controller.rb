@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  # check before edit and update that user is logged in and current user
   before_action :logged_in_user, only: [:edit, :update]
   before_action :correct_user,   only: [:edit, :update]
 
@@ -49,6 +50,7 @@ class UsersController < ApplicationController
     # Before filters
     def logged_in_user
       unless logged_in?
+        store_location
         flash[:danger] = "Please log in."
         redirect_to login_url
       end
