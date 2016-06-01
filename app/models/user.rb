@@ -10,7 +10,9 @@ class User < ActiveRecord::Base
   validates :email, presence: true, format: { with: VALID_EMAIL_REGEX }, 
               uniqueness: {case_sensitive: false}
   has_secure_password
-  validates :password, presence: true, length: { minimum: 6 }
+  validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
+  # allow_nil:true doesn't allow nil passwords because they are validated
+  # with has_secure_password and therefore bypass 'presence: true'
 
   # Returns the hash digest of the given string.
   def User.digest(string)
