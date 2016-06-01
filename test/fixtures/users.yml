@@ -1,7 +1,13 @@
 # Read about fixtures at
 # http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
+# user fixture
 adam:
   name: Adam
   email: adam@example.com
+  password_digest: <%= User.digest('password') %>
+# second user fixture for comparing in tests
+sample:
+  name: Sample
+  email: sample@example.com
   password_digest: <%= User.digest('password') %>
