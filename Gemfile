@@ -8,6 +8,8 @@ gem 'rails', '4.2.5'
 gem 'pg'
 # Hash passord for ramped-up security
 gem 'bcrypt'
+# Create fake/sample users (restrict to dev env. normally)
+gem 'faker'
 
 # JAVASCRIPT
 # Use Uglifier as compressor for JavaScript assets
