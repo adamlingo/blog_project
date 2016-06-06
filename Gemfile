@@ -10,6 +10,9 @@ gem 'pg'
 gem 'bcrypt'
 # Create fake/sample users (restrict to dev env. normally)
 gem 'faker'
+# Paginate method for Rails
+gem 'will_paginate'
+gem 'bootstrap-will_paginate'
 
 # JAVASCRIPT
 # Use Uglifier as compressor for JavaScript assets

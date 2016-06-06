@@ -46,6 +46,8 @@ GEM
     bootstrap-sass (3.3.6)
       autoprefixer-rails (>= 5.2.1)
       sass (>= 3.3.4)
+    bootstrap-will_paginate (0.0.10)
+      will_paginate
     builder (3.2.2)
     byebug (8.2.5)
     callsite (0.0.11)
@@ -212,6 +214,7 @@ GEM
       binding_of_caller (>= 0.7.2)
       railties (>= 4.0)
       sprockets-rails (>= 2.0, < 4.0)
+    will_paginate (3.1.0)
     zendesk_api (1.13.4)
       faraday (~> 0.9)
       hashie (>= 1.2, < 4.0, != 3.3.0)
@@ -226,6 +229,7 @@ PLATFORMS
 DEPENDENCIES
   bcrypt
   bootstrap-sass
+  bootstrap-will_paginate
   byebug
   codeclimate-test-reporter
   coffee-rails (~> 4.1.0)
@@ -252,6 +256,7 @@ DEPENDENCIES
   unicorn
   unicorn-worker-killer
   web-console (~> 2.0)
+  will_paginate
   zendesk_api
 
 BUNDLED WITH
