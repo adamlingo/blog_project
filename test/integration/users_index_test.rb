@@ -1,7 +1,19 @@
 require "test_helper"
 
 class UsersIndexTest < ActionDispatch::IntegrationTest
-  def test_sanity
-    flunk "Need real tests"
+  
+  def setup
+    @user = users(:adam)
+  end
+
+  test "index including pagination" do
+    log_in_as(@user)
+    get users_path
+    assert_template 'users/index'
+    # check for div requiring pagination class
+    assert_select 'div.pagination'
+    User.paginate(page: 1).each do |user|
+      assert_select 'a[href=?]', user_path(user), text: user.name
+    end
   end
 end
