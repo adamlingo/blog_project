@@ -5,10 +5,8 @@
 
 <ul class="users">
   <% @users.each do |user| %>
-    <li>
-      <%= gravatar_for user, size: 50 %>
-      <%= link_to user.name, user %>
-    </li>
+    <!-- Look for a partial called '_user.html.erb' when iterating through collection of users-->
+    <%= render @users %>
   <% end %>
 </ul>
 
