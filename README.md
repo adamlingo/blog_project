@@ -1,3 +1,4 @@
+[![Stories in Ready](https://badge.waffle.io/adamlingo/blog_project.png?label=ready&title=Ready)](https://waffle.io/adamlingo/blog_project)
 # Blog Tutorial Zone
 
 ## Running on local:
