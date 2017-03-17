@@ -4,8 +4,9 @@ default: &default
   reconnect: false
   host: localhost
   pool: 5
-  username: adamlingo
-
+  username: postgres
+  role: adam
+  
 # this is for humans
 development:
   <<: *default
