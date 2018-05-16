@@ -5,7 +5,7 @@ ruby '2.3.0'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.7.1'
 # Use postgres as the database for Active Record
-gem 'pg'
+gem 'pg', "~> 0.21"
 # Hash passord for ramped-up security
 gem 'bcrypt'
 # Create fake/sample users (restrict to dev env. normally)
